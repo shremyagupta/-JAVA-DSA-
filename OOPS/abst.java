@@ -1,7 +1,6 @@
 public class abst {
     public static void main (String args[]){
-        //
-        Mustang m = new Mustang();
+       // Mustang m = new Mustang();
         
     }
     
@@ -28,11 +27,11 @@ class Horse extends Animal{
         System.out.println("walk on 4 legs");
     }
 }
-class Mustang extends Horse{
-    Mustang(){
-        System.out.println("Mustang contructor is called");
-    }
-}
+//class Mustang extends Horse{
+    //Mustang(){
+      //  System.out.println("Mustang contructor is called");
+    //}
+//}
 class Chicken extends Animal
 {
 void walk(){

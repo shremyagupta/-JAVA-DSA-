@@ -87,6 +87,62 @@ public static int lastOccurance(int arr[] , int i, int key){
     return isFound;
 }
     
+
+// power
+public static int power(int x , int n){
+    if (n==0 ){
+        return 1;
+    }
+    int xnm1 = power(x ,n-1);
+    int xn = x * xnm1;
+    return xn;
+    // return x* power(x, n-1);
+}
+
+//optimze power
+public static int optimizePower(int a , int n){
+    if( n == 0){
+        return 1;
+    }
+     int halfPowerSq = optimizePower(a , n/2)* optimizePower(a , n/2);
+    // odd
+    if(n% 2 != 0 ){
+        halfPowerSq = a * halfPowerSq;
+        }
+        return halfPowerSq;
+
+}
+
+//or
+public static int optimizePowernew(int a , int n){
+    if( n == 0){
+        return 1;
+    }
+     int halfPower = optimizePower(a , n/2);
+     int halfPowerSq = halfPower * halfPower;
+    // odd
+    if(n% 2 != 0 ){
+        halfPowerSq = a * halfPowerSq;
+        }
+        return halfPowerSq;
+    }
+
+//Tilting code
+public static int tilingProblem(int n){//2*n (floor size)
+    //base case
+    if(n == 0 || n==1){
+        return 1;
+    }
+    //vertical case
+    int fnm1= tilingProblem(n-1);
+    //horizntal case
+    int fnm2 = tilingProblem(n-2);
+    //total ways
+    int toWays = fnm1 +fnm2;
+    return toWays;
+
+}
+
     public static void main(String[] args) {
         //fact(5);
     //System.out.println(fact(n));
@@ -99,8 +155,17 @@ public static int lastOccurance(int arr[] , int i, int key){
    //System.out.println(fib(27));
    //int arr[] = {1,2,3,9,6};
    //System.out.println( isSorted(arr , 0));
-   int arr[] = { 6,3,5,2,6,5,7};
-   System.out.println (lastOccurance( arr,0,6));
+  // int arr[] = { 6,3,5,2,6,5,7};
+   //System.out.println (lastOccurance( arr,0,6));
+
+   //int a = 2;
+   //int n = 5;
+    //System.out.println(optimizePower(a , n));
+    //System.out.println(optimizePowernew(a,n));
+    System.out.println(tilingProblem(2 ));
+
+
+
 
 }
 }

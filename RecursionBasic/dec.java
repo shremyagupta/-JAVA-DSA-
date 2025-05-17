@@ -140,9 +140,41 @@ public static int tilingProblem(int n){//2*n (floor size)
     //total ways
     int toWays = fnm1 +fnm2;
     return toWays;
-
 }
 
+    //remove duplicate
+public static void removeDuplicate(String str, int idx, StringBuilder newStr, boolean[] map){
+    if(idx ==str.length()){
+        System.out.println(newStr);
+        return;
+    }
+    char currChar = str.charAt(idx);
+    if(map[currChar - 'a']==true){
+        removeDuplicate(str, idx+1, newStr, map);
+    }
+    else{
+        map[currChar - 'a']= true;
+        removeDuplicate(str, idx+1, newStr.append(currChar),map);
+    }
+
+}//
+
+//friend pairing
+public static int friendPairing(int n){
+    if(n == 1||n ==2){
+        return n;
+    }
+    //single
+     int fnm1 = friendPairing(n-1);
+
+     //pair
+     int fnm2 = friendPairing(n-2);
+     int pairWays = (n-1) * fnm2;
+
+     //totWays
+     int totWays = fnm1 + pairWays;
+     return totWays;
+}
     public static void main(String[] args) {
         //fact(5);
     //System.out.println(fact(n));
@@ -162,8 +194,10 @@ public static int tilingProblem(int n){//2*n (floor size)
    //int n = 5;
     //System.out.println(optimizePower(a , n));
     //System.out.println(optimizePowernew(a,n));
-    System.out.println(tilingProblem(2 ));
-
+    //System.out.println(tilingProblem(2 ));
+    //String str = "appnnacollege";
+   // removeDuplicate(str, 0,  new StringBuilder(""), new boolean[26]);
+    System.out.println(friendPairing(3));
 
 
 
@@ -171,3 +205,7 @@ public static int tilingProblem(int n){//2*n (floor size)
 }
 
 
+
+
+
+    

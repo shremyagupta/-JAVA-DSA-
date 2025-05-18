@@ -175,6 +175,20 @@ public static int friendPairing(int n){
      int totWays = fnm1 + pairWays;
      return totWays;
 }
+
+// binary numbers
+public static void printBinStrings(int n , int lastPlace, String str){
+    //base case
+    if(n==0){
+        System.out.println(str);
+    }
+
+    // kaam
+    printBinStrings(n-1, 0, str+"0");
+    if(lastPlace == 0){
+        printBinStrings(n-1, 1, str+"1");
+    }
+}
     public static void main(String[] args) {
         //fact(5);
     //System.out.println(fact(n));
@@ -197,8 +211,8 @@ public static int friendPairing(int n){
     //System.out.println(tilingProblem(2 ));
     //String str = "appnnacollege";
    // removeDuplicate(str, 0,  new StringBuilder(""), new boolean[26]);
-    System.out.println(friendPairing(3));
-
+   // System.out.println(friendPairing(3));
+printBinStrings(3 , 0 , "");
 
 
 }
